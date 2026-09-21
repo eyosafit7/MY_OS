@@ -1,0 +1,19 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img{
+    object-fit: cover; 
+    width: 364px; 
+    height: 264px;
+    border-radius: 20px;
+}
+#icon{
+    width: 64px;
+    height: 64px;
+}
+#first{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
