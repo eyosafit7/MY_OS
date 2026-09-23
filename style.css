@@ -10,43 +10,77 @@ body{
     margin: 0px;
 }
 
-.topbar{
+.bottombar{
+    border: 1px solid hsl(0, 3%, 81%);
     display: flex;
+    bottom: 0;
     justify-content: space-between;
     position: absolute;
-     width: 100%; 
-    backdrop-filter: blur(40px); 
+    z-index: 1;
+    width: 100%; 
+    height: 56px;
+    backdrop-filter: blur(20px); 
     background-color: transparent; 
     color: #afafaf;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.desktop{
-    border: solid; 
+.welcome{
+    border: 1px solid gainsboro; 
     width: 850px;
     height: 480px;
-    border-radius: 16px;
+    border-radius: 10px;
     padding: 15px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-55%);
     background-color: transparent;
     backdrop-filter: blur(30px);
+    display: none;
 }
+#welcomeheader{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    gap: 4px;
+}
+
 img{
     object-fit: cover; 
     width: 364px; 
     height: 264px;
     border-radius: 20px;
 }
-#icon{
+#welcomeopen{
     display: flex; 
     align-items: center; 
     gap: 4px; 
     color: black; 
     font-weight: bold;
+    cursor: pointer;
+}
+#dragger{
+    flex-grow: 1; 
+    cursor: grab;
+    cursor: move;
+}
+.circle{
+    cursor: pointer; 
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+.circle:hover{
+    border: 0.5px solid gainsboro;
 }
 #date{
     display: flex;
@@ -62,5 +96,23 @@ img{
 #first{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
+}
+
+#calculator_app{
+    margin: 10px;
+    padding: 5px; 
+    backdrop-filter: blur(10px);
+    display: inline-block;
+    width: 81px;
+    height: 70px;
+    background-color: transparent; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calculator_app:hover{
+    background-color: hsla(209, 92%, 90%, 0.715);
 }
