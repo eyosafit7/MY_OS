@@ -3,8 +3,27 @@ var welcomescreen = document.querySelector("#welcome")
 
 var welcomescreenclose = document.querySelector("#welcomeclose")
 var welcomescreenopen = document.querySelector("#welcomeopen")
+var calcopen = document.querySelector("#calculator_app")
+var calclose = document.querySelector("#calclose")
 
+var calc = document.getElementById("calc")
+var monitorvalue = document.getElementById("monitorvalue")
 
+var bigger_index = 1
+
+function addValue(val){
+  monitorvalue.value += val
+}
+
+function remove(){
+  monitorvalue.value = ""
+}
+function deletelast(){
+  monitorvalue.value = monitorvalue.value.slice(0,-1)
+}
+function solve(){
+  monitorvalue.value = eval(monitorvalue.value)
+}
 
 function count(){
     const now = new Date()
@@ -24,7 +43,15 @@ function close_window(element){
 }
 
 function open_window(element){
+  if (element.style.display != "none"){
+    close_window(element)
+  }
+  else{
+    element.style.zIndex = `${bigger_index}`
+    bigger_index += 1
     element.style.display = "inline-block"
+  }
+  
 }
 
 welcomescreenopen.addEventListener("click",function(){
@@ -34,6 +61,14 @@ welcomescreenopen.addEventListener("click",function(){
 welcomescreenclose.addEventListener("click",function(){
     close_window(welcomescreen)
 })
+calcopen.addEventListener("click",function(){
+    open_window(calc)
+})
+
+calclose.addEventListener("click",function(){
+    close_window(calc)
+})
+
 
 count()
 
@@ -42,7 +77,7 @@ setInterval(count,1000)
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
 
-dragElement(document.getElementById("mydiv"));
+dragElement(document.getElementById("calc"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {

@@ -3,15 +3,53 @@
     <head>
         <title>Liqlaqo-OS</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" href="images/ChatGPT Image Sep 21, 2026, 03_48_55 PM.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     </head>
     <body>
         <div id="calculator_app" >
             <img style="width: 50px; height: 50px;" src="images/calculator.png" alt="calculator" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Calculator</p>
         </div>
-        <div id="welcome" class="welcome">
-            <div id="welcomeheader">
+        <div  id="calc" class="app">
+            <div id="calcheader" class="appheader">
+                <span id="dragger"></span>
+                <span id="calclose" class="circle" style="background-color: hsl(1, 100%, 48%);" ></span>
+                <span  class="circle" style="background-color:#FFBD44 ;"></span>
+                <span  class="circle" style="background-color: #028585;"></span>
+            </div>
+            <h1 style="margin-left: 20px; margin-top: 15px;">calculator</h1>
+            <div class="calcbody">
+                <div id="monitor">
+                    <input type="text" placeholder="8888" readonly id="monitorvalue">
+                </div>
+                <div id="keyboard">
+                    <button onclick="addValue('7')">7</button>
+                    <button onclick="addValue('8')">8</button>
+                    <button onclick="addValue('9')">9</button>
+                    <button onclick="addValue('00')">00</button>
+                    <button onclick="remove()" style="color: rgb(214, 0, 0);">C</button>
+                    <button onclick="deletelast()">Del</button>
+                    <button onclick="addValue('%')">%</button>
+                    <button onclick="addValue('**')">**</button>
+                    <button onclick="addValue('4')">4</button>
+                    <button onclick="addValue('5')">5</button>
+                    <button onclick="addValue('6')">6</button>
+                    <button onclick="addValue('0')">0</button>
+                    <button onclick="addValue('+')">+</button>
+                    <button onclick="addValue('-')">-</button>
+                    <button onclick="addValue('*')">*</button>
+                    <button onclick="addValue('/')">/</button>
+                    <button onclick="addValue('1')">1</button>
+                    <button onclick="addValue('2')">2</button>
+                    <button onclick="addValue('3')">3</button>
+                    <button onclick="addValue('.')">.</button>
+                    <button id="equal" onclick="solve()">=</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="welcome" class="app" >
+            <div id="welcomeheader" class="appheader">
                 <span id="dragger"></span>
                 <span id="welcomeclose" class="circle" style="background-color: hsl(1, 100%, 48%);" ></span>
                 <span  class="circle" style="background-color:#FFBD44 ;"></span>
