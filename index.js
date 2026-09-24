@@ -5,9 +5,12 @@ var welcomescreenclose = document.querySelector("#welcomeclose")
 var welcomescreenopen = document.querySelector("#welcomeopen")
 var calcopen = document.querySelector("#calculator_app")
 var calclose = document.querySelector("#calclose")
+var noteopen = document.querySelector("#notebook_app")
+var noteclose = document.querySelector("#notebookclose")
 
 var calc = document.getElementById("calc")
 var monitorvalue = document.getElementById("monitorvalue")
+var notebook = document.getElementById("notebook")
 
 var bigger_index = 1
 
@@ -68,6 +71,13 @@ calcopen.addEventListener("click",function(){
 calclose.addEventListener("click",function(){
     close_window(calc)
 })
+noteopen.addEventListener("click",function(){
+    open_window(notebook)
+})
+
+noteclose.addEventListener("click",function(){
+    close_window(notebook)
+})
 
 
 count()
@@ -76,7 +86,7 @@ setInterval(count,1000)
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
-
+dragElement(document.getElementById("notebook"))
 dragElement(document.getElementById("calc"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.

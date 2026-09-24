@@ -24,6 +24,7 @@ body{
     color: #afafaf;
     padding-left: 10px;
     padding-right: 10px;
+    z-index: 78;
 }
 
 .app{
@@ -99,7 +100,7 @@ img{
     gap: 9px;
 }
 
-#calculator_app{
+.widget{
     margin: 10px;
     padding: 5px; 
     backdrop-filter: blur(10px);
@@ -112,8 +113,7 @@ img{
     flex-direction: column;
     align-items: center;
 }
-
-#calculator_app:hover{
+.widget:hover{
     background-color: hsla(209, 92%, 90%, 0.715);
     cursor: pointer;
 }
@@ -164,6 +164,7 @@ img{
     margin: 5px;
     cursor: pointer;
     border: 0.5px solid gainsboro;
+    transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
 #keyboard button:hover{
     border: 1px solid gray;
@@ -183,4 +184,68 @@ img{
     border: 1px solid rgba(0, 112, 240, 0.838);
     color: black;
     
+}
+
+#notescontent{
+    width: 100%;
+    height: 360px;
+    background-color: transparent;
+    margin-top: 5px;
+}
+
+.paper {
+    width: 700px;
+    height: 500px;
+
+    background: #fff;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.2),
+        inset 0 0 30px rgba(0,0,0,.04);
+
+    overflow: hidden;
+}
+
+.notebook {
+    width: 90%;
+    height: 100%;
+
+    box-sizing: border-box;
+    padding: 12px 30px 12px 65px;
+
+    border: none;
+    outline: none;
+    resize: none;
+
+    font-family: "Segoe Print", cursive;
+    font-size: 18px;
+    line-height: 32px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent 63px,
+            #e88 63px,
+            #e88 65px,
+            transparent 65px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 31px,
+            #b8c7d9 31px,
+            #b8c7d9 32px
+        );
+
+    background-position: 0 12px;
+    background-size: 100% 32px;
+}
+.notebookcontent{
+    overflow: scroll; 
+    height: fit-content;
+}
+.notebookcontent::-webkit-scrollbar {
+    display: none; 
 }

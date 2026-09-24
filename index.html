@@ -6,9 +6,29 @@
         <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     </head>
     <body>
-        <div id="calculator_app" >
+        <div id="calculator_app" class="widget">
             <img style="width: 50px; height: 50px;" src="images/calculator.png" alt="calculator" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Calculator</p>
+        </div>
+        <div id="notebook_app" class="widget">
+            <img style="width: 50px; height: 50px;" src="images/notebook.png" alt="notebook" >
+            <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Notebook</p>
+        </div>
+        <div id="notebook" class="app" >
+            <div id="notebookheader" class="appheader">
+                <span id="dragger"></span>
+                <span id="notebookclose" class="circle" style="background-color: hsl(1, 100%, 48%);" ></span>
+                <span  class="circle" style="background-color:#FFBD44 ;"></span>
+                <span  class="circle" style="background-color: #028585;"></span>
+            </div>
+            <img src="images/glowpic.gif" style=" float: left; width: 20%; height: 120px; border-radius: 16px" />
+            <h1 style="margin-bottom: 0;">Notebook</h1>
+            <p style="font-family: cursive; font-size: 10px; color: rgb(183, 182, 182); margin-top: 0; margin-left: 20px;">Welcome to <strong>Liqlaqo Notes</strong></p>
+            <div class="notebookcontent">
+                <div  id="notescontent">
+                    <textarea class="notebook" placeholder = " This is my notebook..."></textarea>
+                </div>
+            </div>
         </div>
         <div  id="calc" class="app">
             <div id="calcheader" class="appheader">
@@ -76,3 +96,4 @@
         <script src="index.js"></script>
     </body>
 </html>
+
