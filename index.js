@@ -7,8 +7,12 @@ var calcopen = document.querySelector("#calculator_app")
 var calclose = document.querySelector("#calclose")
 var noteopen = document.querySelector("#notebook_app")
 var noteclose = document.querySelector("#notebookclose")
+var weatheropen = document.querySelector("#weather_app")
+var weatherclose = document.querySelector("#weatherclose")
+
 
 var calc = document.getElementById("calc")
+var weather = document.getElementById("weather")
 var monitorvalue = document.getElementById("monitorvalue")
 var notebook = document.getElementById("notebook")
 
@@ -78,6 +82,13 @@ noteopen.addEventListener("click",function(){
 noteclose.addEventListener("click",function(){
     close_window(notebook)
 })
+weatheropen.addEventListener("click",function(){
+    open_window(weather)
+})
+
+weatherclose.addEventListener("click",function(){
+    close_window(weather)
+})
 
 
 count()
@@ -88,6 +99,7 @@ setInterval(count,1000)
 dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("notebook"))
 dragElement(document.getElementById("calc"));
+dragElement(document.getElementById("weather"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -140,3 +152,87 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
+
+const Arbaminch = document.getElementById("Arba Minch")
+const AddisAbaba = document.getElementById("Addis Ababa")
+const London = document.getElementById("London")
+const Tokyo = document.getElementById("Tokyo")
+const Paris = document.getElementById("Paris")
+const NewYork = document.getElementById("NewYork")
+const result = document.getElementById("weather_result")
+
+let selectedCity = "London"
+
+
+const conditions = {
+    0: "Clear sky ☀️",
+    1: "Mainly clear 🌤️",
+    2: "Partly cloudy ⛅",
+    3: "Overcast ☁️",
+    45: "Fog 🌫️",
+    48: "Fog 🌫️",
+    51: "Light drizzle 🌦️",
+    53: "Drizzle 🌦️",
+    55: "Heavy drizzle 🌧️",
+    61: "Light rain 🌧️",
+    63: "Moderate rain 🌧️",
+    65: "Heavy rain 🌧️",
+    71: "Light snow 🌨️",
+    73: "Snow 🌨️",
+    75: "Heavy snow ❄️",
+    80: "Rain showers 🌦️",
+    81: "Rain showers 🌧️",
+    82: "Heavy rain showers 🌧️",
+    95: "Thunderstorm ⛈️",
+    96: "Thunderstorm with hail ⛈️",
+    99: "Severe thunderstorm ⛈️"
+}
+function handleWeatherClick(elem){
+  elem.addEventListener("click", async () => {
+    result.innerHTML = "<p>Loading weather...</p>";
+    elem.disabled = true
+    try {
+        const geoResponse = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(elem.id)}&count=1&language=en&format=json`
+        )
+        if (!geoResponse.ok) {
+            throw new Error("Could not find the city.");}
+        
+        const geoData = await geoResponse.json();
+        const location = geoData.results?.[0]
+        if (!location) {
+            throw new Error("City not found.");}
+        
+        const response = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=auto`
+        )
+        if (!response.ok) {
+            throw new Error("Could not fetch weather data.");}
+        
+        const data = await response.json();
+        const weather = data.current
+        result.innerHTML = `
+            <h2>${location.name}</h2>
+            <h1>${Math.round(weather.temperature_2m)}°C</h1>
+            <p>${conditions[weather.weather_code] ?? "Unknown conditions"}</p>
+            <p>Feels like: ${weather.apparent_temperature}°C</p>
+            <p>Humidity: ${weather.relative_humidity_2m}%</p>
+            <p>Wind: ${weather.wind_speed_10m} km/h</p>
+            <p>Precipitation: ${weather.precipitation} mm</p>
+            <small>Updated: ${weather.time.replace("T", " ")}</small>
+        `;
+    } catch (error) {
+        result.innerHTML = `<p>${error.message}</p>`;
+    } finally {
+        elem.disabled = false;
+    }
+});
+
+}
+
+handleWeatherClick(Arbaminch)
+handleWeatherClick(AddisAbaba)
+handleWeatherClick(Paris)
+handleWeatherClick(NewYork)
+handleWeatherClick(London)
+handleWeatherClick(Tokyo)

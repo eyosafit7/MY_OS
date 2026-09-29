@@ -14,6 +14,39 @@
             <img style="width: 50px; height: 50px;" src="images/notebook.png" alt="notebook" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Notebook</p>
         </div>
+        <div id="weather_app" class="widget">
+            <img style="width: 50px; height: 50px;" src="images/weather.png" alt="notebook" >
+            <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Weather</p>
+        </div>
+        <div id="weather" class="app" style="display: inline-block;">
+            <div id="weatherheader" class="appheader">
+                <span id="dragger"></span>
+                <span id="weatherclose" class="circle" style="background-color: hsl(1, 100%, 48%);" ></span>
+                <span  class="circle" style="background-color:#FFBD44 ;"></span>
+                <span  class="circle" style="background-color: #028585;"></span>
+            </div>
+            <div id="barcontainer">
+                <div id="leftbar" style="text-align: center;">
+                    <h1 style="margin: 0;">Weather 🌥️</h1>
+                    <div id="place_selector">
+                        <button id="Arba Minch">Arbaminch</button>
+                        <button id="Addis Ababa">Addis Ababa</button>
+                        <button id="NewYork">New York</button>
+                        <button id="London">London</button>
+                        <button id="Tokyo">Tokyo</button>
+                        <button id="Paris">Paris</button>
+                    </div>
+                </div>
+                <div id="rightbar">
+                    <h2 id="weather_result">
+                        <div style="display: flex; justify-content: center; flex-direction: column;">
+                            <img style="height: fit-content; width: 320px;" src="images/weatherwelcome.jpg" alt="welcome">
+                            <p style="font-size: 15px; color: gray; font-weight: 10;">type anything to see the weather</p>
+                        </div>
+                    </h2>
+                </div>
+            </div>
+        </div>
         <div id="notebook" class="app" >
             <div id="notebookheader" class="appheader">
                 <span id="dragger"></span>
