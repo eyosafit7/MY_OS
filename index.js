@@ -159,9 +159,9 @@ const London = document.getElementById("London")
 const Tokyo = document.getElementById("Tokyo")
 const Paris = document.getElementById("Paris")
 const NewYork = document.getElementById("NewYork")
+const searched = document.getElementById("search_weather")
+const update = document.getElementById("update")
 const result = document.getElementById("weather_result")
-
-let selectedCity = "London"
 
 
 const conditions = {
@@ -187,13 +187,17 @@ const conditions = {
     96: "Thunderstorm with hail ⛈️",
     99: "Severe thunderstorm ⛈️"
 }
-function handleWeatherClick(elem){
+function handleWeatherClick(elem,val){
+  
   elem.addEventListener("click", async () => {
+    const city = typeof val !== "string"
+            ? val.value.trim()
+            : val.trim();
     result.innerHTML = "<p>Loading weather...</p>";
     elem.disabled = true
     try {
         const geoResponse = await fetch(
-            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(elem.id)}&count=1&language=en&format=json`
+            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
         )
         if (!geoResponse.ok) {
             throw new Error("Could not find the city.");}
@@ -222,7 +226,8 @@ function handleWeatherClick(elem){
             <small>Updated: ${weather.time.replace("T", " ")}</small>
         `;
     } catch (error) {
-        result.innerHTML = `<p>${error.message}</p>`;
+        result.innerHTML = `<img style="height: 250px; width: 350px;" src="images/weatherwelcome.gif" alt="welcome">
+                            `;
     } finally {
         elem.disabled = false;
     }
@@ -230,9 +235,11 @@ function handleWeatherClick(elem){
 
 }
 
-handleWeatherClick(Arbaminch)
-handleWeatherClick(AddisAbaba)
-handleWeatherClick(Paris)
-handleWeatherClick(NewYork)
-handleWeatherClick(London)
-handleWeatherClick(Tokyo)
+handleWeatherClick(Arbaminch,Arbaminch.id)
+handleWeatherClick(AddisAbaba,AddisAbaba.id)
+handleWeatherClick(Paris,Paris.id)
+handleWeatherClick(NewYork,NewYork.id)
+handleWeatherClick(London,London.id)
+handleWeatherClick(Tokyo,Tokyo.id)
+handleWeatherClick(update,searched)
+

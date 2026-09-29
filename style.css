@@ -292,6 +292,13 @@ img{
     border: 1px solid gainsboro;
 }
 
+#myimage{
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    float: right;
+    margin: 20px;
+}
 
 #weather_result{
     overflow: scroll;
@@ -304,7 +311,29 @@ img{
     display: none;
 }
 
-#selected{
-    border: #afafaf;
+#update{
+    border: 1px solid gainsboro;
+    background-color: rgba(0, 112, 240, 0.838); 
+    color: aliceblue;
+    transition: border 0.3s ease-in, background-color 0.3s ease-in, color 0.3s ease-in;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 5px;
 }
+
+#update:hover{
+    border: 1px solid rgba(0, 112, 240, 0.838); 
+    background-color: transparent;
+    color: rgb(67, 67, 67);
+}
+
+#search_weather{
+    background-color: transparent;
+    color: rgb(107, 107, 107);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+
 
