@@ -1,49 +1,38 @@
 # Liqlaqo OS 🖥️
 
-Liqlaqo OS is a web-based operating system interface built with HTML, CSS, and JavaScript. It recreates some of the interactions of a desktop operating system directly in the browser.
+Liqlaqo OS is a web based operating system built with html, css, and javascript. 
 
 ## 📖 About
 
-Liqlaqo OS was created as a personal web development project to explore interactive user interfaces, JavaScript functionality, and browser-based applications.
-
-The project includes a desktop-style environment where users can interact with different applications and movable windows.
+Liqlaqo OS is my first project in hackclub stardance. It was my dream to create something
+and deploy it on the internet. In this project I learned Git and Github for first time and 
+used them to deploy my work
 
 ## ✨ Features
 
-* 🖥️ Desktop-style interface
-* 🪟 Movable application windows
+* 🖥️ desktop user interface
+* 🪟 draggable applications
 * 🧮 Functional calculator
 * 🌤️ Weather application
 * 📝 Notebook application
-* 🎨 Custom UI design
-* ⚡ Interactive JavaScript functionality
-* 🌐 Runs directly in a web browser
+* ⚡ vanilla javascript code interaction
+* 🌐 finally deployed
 
 ## 🛠️ Built With
 
 * HTML5
 * CSS3
 * JavaScript
-* Git & GitHub
-* GitHub Pages
 
 ## 🚀 Live Demo
 
 [Open Liqlaqo OS](https://eyosafit7.github.io/MY_OS/)
 
-## 🤖 AI Usage & Credits
+## Credits
 
-I used **ChatGPT by OpenAI** as a learning and development assistant during this project.
-
-AI assistance was used for:
-
-* Understanding JavaScript concepts
-* Debugging and troubleshooting guidance
-* Learning Git and GitHub workflows
-* Improving project documentation
-* Learning how to deploy the project using GitHub Pages
-
-The **calculator and weather application were implemented by me**. AI was used as a support tool for learning, problem-solving, and development guidance.
+I used stardance guidance and looked through every possible link they gave me to 
+undestand the concept more deeply, and thanks for the guidance I finally finished 
+my own project and deployed so that everbody can access it online. 
 
 ### AI Credit
 
@@ -53,8 +42,7 @@ The **calculator and weather application were implemented by me**. AI was used a
 
 **Eyosafit Samuel**
 
-A student developer from Ethiopia interested in software development, technology, and building creative projects.
-
-## 📜 License
-
-This project was created for educational and personal development purposes.
+A student from ethiopia. I have been teaching my self basic programming for the last two years,
+but I didn't deploy anything till now. It's because I didn't have any guidance. I tried so many 
+times to finish a project but know even if I don't feel I finished the project I decided to deploy 
+it anyways, because I changed so much in this project and gave everything I have to complete it. 
