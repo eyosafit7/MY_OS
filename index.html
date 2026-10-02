@@ -3,7 +3,6 @@
     <head>
         <title>Liqlaqo-OS</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     </head>
     <body>
         <div id="calculator_app" class="widget">
@@ -22,10 +21,29 @@
             <img style="width: 45px; height: 45px;" src="images/settingicon1.png" alt="settingicon" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Setting</p>
         </div>
-        <div id="weather" class="app" style="display: inline-block;">
+
+        <!-- setting app -->
+        <div id="setting" class="app" style="display: inline-block;" >
+            <div id="settingheader" class="appheader">
+                <span id="dragger"></span>
+                <span id="settingclose" class="circle" style="background-color: #ff5351;" ></span>
+            </div>
+            <div id="setting_content">
+                <h1 style="margin-top: 0;">Settings</h1>
+                <h3>Wallpaper</h3>
+                <button onclick="handleWallpaper(0)">samurai</button>
+                <button onclick="handleWallpaper(1)">pikachu</button>
+                <button onclick="handleWallpaper(2)">spider-man</button>
+                <h3>Data and Privacy</h3>
+                <button onclick="handleDataClear()">Clear Notebook Data</button>
+            </div>
+        </div>
+
+        <!-- weather app -->
+        <div id="weather" class="app" >
             <div id="weatherheader" class="appheader">
                 <span id="dragger"></span>
-                <span id="weatherclose" class="circle" style="background-color: #ff7f7d;" ></span>
+                <span id="weatherclose" class="circle" style="background-color: #ff5351;" ></span>
             </div>
             <div id="barcontainer">
                 <div id="leftbar" style="text-align: center;">
@@ -53,23 +71,31 @@
                 </div>
             </div>
         </div>
+
+        <!-- notebook app  -->
         <div id="notebook" class="app" >
             <div id="notebookheader" class="appheader">
                 <span id="dragger"></span>
-                <span id="notebookclose" class="circle" style="background-color: #ff7f7d;" ></span>
+                <span id="notebookclose" class="circle" style="background-color: #ff5351;" ></span>
             </div>
+            <button id="save_notes" class="note_button">Save</button>
+            <button id="load_notes" class="note_button">Load</button>
+
             <h1 style="margin-bottom: 0;">Notebook</h1>
+
             <p style="font-family: cursive; font-size: 10px;  margin-top: 0; margin-left: 20px;">Welcome to <strong>Liqlaqo Notes</strong></p>
-            <div class="notebookcontent">
+            <div style="margin-left: 40px;" class="notebookcontent">
                 <div  id="notescontent">
-                    <textarea class="notebook" placeholder = " This is my notebook..."></textarea>
+                    <textarea id="notes_content" class="notebook" placeholder = " This is my notebook..."></textarea>
                 </div>
             </div>
         </div>
+
+        <!-- calculator app -->
         <div  id="calc" class="app" >
             <div id="calcheader" class="appheader">
                 <span id="dragger"></span>
-                <span id="calclose" class="circle" style="background-color: #ff7f7d;" ></span>
+                <span id="calclose" class="circle" style="background-color: #ff5351;" ></span>
             </div>
             <h1 style="margin-left: 20px; margin-top: 15px;">calculator</h1>
             <div class="calcbody">
@@ -81,7 +107,7 @@
                     <button onclick="addValue('8')">8</button>
                     <button onclick="addValue('9')">9</button>
                     <button onclick="addValue('00')">00</button>
-                    <button onclick="remove()" style="color: rgb(214, 0, 0);">C</button>
+                    <button onclick="remove()" style="color: #d60000;">C</button>
                     <button onclick="deletelast()">Del</button>
                     <button onclick="addValue('%')">%</button>
                     <button onclick="addValue('**')">**</button>
@@ -102,10 +128,12 @@
             </div>
 
         </div>
+
+        <!-- welcome screen -->
         <div id="welcome" class="app" >
             <div id="welcomeheader" class="appheader">
                 <span id="dragger"></span>
-                <span id="welcomeclose" class="circle" style="background-color: #ff7f7d;" ></span>
+                <span id="welcomeclose" class="circle" style="background-color: #ff5351;" ></span>
             </div>
             <h1 style="margin-left: 60px;" id="first">Welcome </h1>
             
@@ -125,6 +153,7 @@
             
         </div>
 
+        <!-- bottom bar -->
         <div class="bottombar">
             <p id="welcomeopen" >
                 <span>Liqlaqo-OS</span> 

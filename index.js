@@ -10,12 +10,15 @@ var noteopen = document.querySelector("#notebook_app")
 var noteclose = document.querySelector("#notebookclose")
 var weatheropen = document.querySelector("#weather_app")
 var weatherclose = document.querySelector("#weatherclose")
+var settingopen = document.querySelector("#setting_app")
+var settingclose = document.querySelector("#settingclose")
 
 
 var calc = document.getElementById("calc")
 var weather = document.getElementById("weather")
 var monitorvalue = document.getElementById("monitorvalue")
 var notebook = document.getElementById("notebook")
+var setting = document.getElementById("setting")
 
 var bigger_index = 1
 
@@ -91,6 +94,13 @@ weatheropen.addEventListener("click",function(){
 weatherclose.addEventListener("click",function(){
     close_window(weather)
 })
+settingopen.addEventListener("click",function(){
+    open_window(setting)
+})
+
+settingclose.addEventListener("click",function(){
+    close_window(setting)
+})
 
 
 count()
@@ -101,6 +111,7 @@ dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("notebook"))
 dragElement(document.getElementById("calc"));
 dragElement(document.getElementById("weather"));
+dragElement(document.getElementById("setting"));
 
 
 function dragElement(element) {
@@ -226,4 +237,50 @@ handleWeatherClick(NewYork,NewYork.id)
 handleWeatherClick(London,London.id)
 handleWeatherClick(Tokyo,Tokyo.id)
 handleWeatherClick(update,searched)
+
+const save_notes = document.getElementById("save_notes")
+const load_notes = document.getElementById("load_notes")
+const notes_content = document.querySelector("#notes_content")
+
+save_notes.addEventListener("click", () => {
+  key = window.prompt("set key to remember? ")
+  if (Boolean(key) == true){
+    localStorage.setItem(key,notes_content.value)
+    window.alert("saved succesfully")
+  }
+  else{
+    window.alert("type something to remember first")
+  }
+  
+} )
+load_notes.addEventListener("click", ()=>{
+  requested_key = window.prompt("ensert key? ")
+  if (requested_key in localStorage){
+    notes_content.value = localStorage.getItem(requested_key)
+    window.alert("loaded succesfully")
+  }
+  else{
+    window.alert("no key found")
+  }
+})
+
+function handleDataClear(){
+  key = window.prompt('ensert key? ')
+  if (Boolean(key) == true && key in localStorage){
+    localStorage.removeItem(key)
+    window.alert('Cleared succesfully')
+  }
+  else if(Boolean(key) == true){
+    window.alert("Not Found!")
+  }
+  else{
+    window.alert("ensert a key")
+  }
+}
+
+links = ['images/samurai.jpg','images/pikachu.jpg','images/spiderman.jpg']
+function handleWallpaper(index){
+  document.body.style.backgroundImage = `url(${links[index]})`
+  document.body.style.backgroundSize = 'cover'
+}
 
