@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="calculator_app" class="widget">
-            <img style="width: 50px; height: 50px;" src="images/calculator.png" alt="calculator" >
+            <img style="width: 50px; height: 50px; " src="images/calculator_icon.png" alt="calculator" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Calculator</p>
         </div>
         <div id="notebook_app" class="widget">
@@ -15,15 +15,17 @@
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Notebook</p>
         </div>
         <div id="weather_app" class="widget">
-            <img style="width: 50px; height: 50px;" src="images/weather.png" alt="notebook" >
+            <img style="width: 50px; height: 50px;" src="images/weather-icon.png" alt="weathericon" >
             <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Weather</p>
         </div>
-        <div id="weather" class="app">
+        <div id="setting_app" class="widget">
+            <img style="width: 45px; height: 45px;" src="images/settingicon1.png" alt="settingicon" >
+            <p style="font-size: 10px; font-weight: bold; color: rgb(130, 130, 130); margin: 0;">Setting</p>
+        </div>
+        <div id="weather" class="app" style="display: inline-block;">
             <div id="weatherheader" class="appheader">
                 <span id="dragger"></span>
                 <span id="weatherclose" class="circle" style="background-color: #ff7f7d;" ></span>
-                <!-- <span  class="circle" style="background-color:#ffdea0  ;"></span>
-                <span  class="circle" style="background-color: #8dffff;"></span> -->
             </div>
             <div id="barcontainer">
                 <div id="leftbar" style="text-align: center;">
@@ -44,7 +46,8 @@
                 <div id="rightbar" style="padding-top: 30px;">
                     <h2 id="weather_result" style="margin-left: 30px;">
                         <div style="display: flex; justify-content: center; flex-direction: column;">
-                            <img style="height: 250px; width: 350px;" src="images/weatherwelcome.gif" alt="welcome">
+                            <img style="height: 150px; width: 40%;" src="images/no-result.gif" alt="welcome">
+                            <p style="font-size: 20px;">Try searching for other cities</p>
                         </div>
                     </h2>
                 </div>
@@ -54,24 +57,19 @@
             <div id="notebookheader" class="appheader">
                 <span id="dragger"></span>
                 <span id="notebookclose" class="circle" style="background-color: #ff7f7d;" ></span>
-                <!-- <span  class="circle" style="background-color:#ffdea0 ;"></span>
-                <span  class="circle" style="background-color: #8dffff;"></span> -->
             </div>
-            <img src="images/glowpic.gif" style=" float: left; width: 20%; height: 120px; border-radius: 16px" />
             <h1 style="margin-bottom: 0;">Notebook</h1>
-            <p style="font-family: cursive; font-size: 10px; color: rgb(183, 182, 182); margin-top: 0; margin-left: 20px;">Welcome to <strong>Liqlaqo Notes</strong></p>
+            <p style="font-family: cursive; font-size: 10px;  margin-top: 0; margin-left: 20px;">Welcome to <strong>Liqlaqo Notes</strong></p>
             <div class="notebookcontent">
                 <div  id="notescontent">
                     <textarea class="notebook" placeholder = " This is my notebook..."></textarea>
                 </div>
             </div>
         </div>
-        <div  id="calc" class="app">
+        <div  id="calc" class="app" >
             <div id="calcheader" class="appheader">
                 <span id="dragger"></span>
                 <span id="calclose" class="circle" style="background-color: #ff7f7d;" ></span>
-                <!-- <span  class="circle" style="background-color:#FFBD44 ;"></span>
-                <span  class="circle" style="background-color: #8dffff;"></span> -->
             </div>
             <h1 style="margin-left: 20px; margin-top: 15px;">calculator</h1>
             <div class="calcbody">
@@ -104,26 +102,23 @@
             </div>
 
         </div>
-        <div id="welcome" class="app" style="display: inline-block;">
+        <div id="welcome" class="app" >
             <div id="welcomeheader" class="appheader">
                 <span id="dragger"></span>
                 <span id="welcomeclose" class="circle" style="background-color: #ff7f7d;" ></span>
-                <!-- <span  class="circle" style="background-color:#ffdea0 ;"></span>
-                <span  class="circle" style="background-color: #8dffff;"></span> -->
             </div>
-            <img id="myimage" src="images/myself.png" alt="" >
             <h1 style="margin-left: 60px;" id="first">Welcome </h1>
             
-            <pre style="color: gray;">
+            <pre >
                Hey there, I'm Eyosafit! 👋
 
-               I am a student from <a style="text-decoration: none; font-family: cursive; color: #74fbe0;" href="https://en.wikipedia.org/wiki/Ethiopia" target="_blank">Ethiopia</a>.
+               I am a student from <a style="text-decoration: none; font-family: cursive; color: #5dcbb5;" href="https://en.wikipedia.org/wiki/Ethiopia" target="_blank">Ethiopia</a>.
                It is my first project so far. I have learned a lot from this project.
-               Liqlaqo doesn't have any meaning even in <a style="text-decoration: none; font-family: cursive; color: #9ab5ff;" href="https://en.wikipedia.org/wiki/Amharic" target="_blank">Amharic</a>. 
+               Liqlaqo doesn't have any meaning even in <a style="text-decoration: none; font-family: cursive; color: #5c76bc;" href="https://en.wikipedia.org/wiki/Amharic" target="_blank">Amharic</a>. 
                The project may have some bugs also it's not responsive too.
                If you have any suggestion contact me
                
-               Google account: <a style="text-decoration: none; font-family: cursive; color: #ffb39a;" href="mailto:eyosafitsamuel3@gmail.com">eyosafitsamuel3@gmail.com</a>.
+               Google account: <a style="text-decoration: none; font-family: cursive; color: #c2755c;" href="mailto:eyosafitsamuel3@gmail.com">eyosafitsamuel3@gmail.com</a>.
 
                Thank you very much for exploring my project. Have a fun ✨
             </pre>
@@ -133,14 +128,13 @@
         <div class="bottombar">
             <p id="welcomeopen" >
                 <span>Liqlaqo-OS</span> 
-                <img id="icon-img" src="images/icon.png">
             </p>
             <p>
                 “Whatever you do, work at it with all your heart…” — <span style="color: #a3ff69;">Colossians 3:23</span> 
             </p>
-            <p id="date">
-                <span id="timer">6:07</span>
-                <span id="date">9/21/2026</span>
+            <p class="datebar">
+                <span id="timer">#</span>
+                <span id="date">#</span>
             </p>
         </div>
         

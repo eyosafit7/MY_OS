@@ -1,4 +1,5 @@
 const time = document.getElementById("timer")
+const date = document.getElementById("date")
 var welcomescreen = document.querySelector("#welcome")
 
 var welcomescreenclose = document.querySelector("#welcomeclose")
@@ -38,11 +39,12 @@ function count(){
     ampm = now.getHours()
     ampm = ampm > 12 ? "PM" : "AM"
 
-    new_hour = ampm == "PM" ? String(now.getHours()).padStart(2,"0") - 12 : String(now.getHours()).padStart(2,"0")
+    new_hour = ampm == "PM" ? String(now.getHours() - 12).padStart(2,"0") : String(now.getHours()).padStart(2,"0")
     new_minute = String(now.getMinutes()).padStart(2,"0")
     new_second = String(now.getSeconds()).padStart(2,"0")
 
     time.textContent = `${new_hour}:${new_minute}:${new_second} ${ampm}`
+    date.textContent = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
 }
 
 function close_window(element){
@@ -95,58 +97,44 @@ count()
 
 setInterval(count,1000)
 
-// Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("notebook"))
 dragElement(document.getElementById("calc"));
 dragElement(document.getElementById("weather"));
 
-// Step 1: Define a function called `dragElement` that makes an HTML element draggable.
+
 function dragElement(element) {
-  // Step 2: Set up variables to keep track of the element's position.
   var initialX = 0;
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
 
-  // Step 3: Check if there is a special header element associated with the draggable element.
   if (document.getElementById(element.id + "header")) {
-    // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
-    // This allows you to drag the window around by its header.
     document.getElementById(element.id + "header").onmousedown = startDragging;
   } else {
-    // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
-    // This allows you to drag the window by holding down anywhere on the window.
     element.onmousedown = startDragging;
   }
 
-  // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
     e = e || window.event;
     e.preventDefault();
-    // Step 7: Get the mouse cursor position at startup.
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
     document.onmousemove = dragElement;
   }
-
-  // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
   function dragElement(e) {
     e = e || window.event;
     e.preventDefault();
-    // Step 10: Calculate the new cursor position.
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
+    
     element.style.top = (element.offsetTop - currentY) + "px";
     element.style.left = (element.offsetLeft - currentX) + "px";
   }
 
-  // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
   function stopDragging() {
     document.onmouseup = null;
     document.onmousemove = null;
@@ -163,30 +151,30 @@ const searched = document.getElementById("search_weather")
 const update = document.getElementById("update")
 const result = document.getElementById("weather_result")
 
-
-const conditions = {
-    0: "Clear sky ☀️",
-    1: "Mainly clear 🌤️",
-    2: "Partly cloudy ⛅",
-    3: "Overcast ☁️",
-    45: "Fog 🌫️",
-    48: "Fog 🌫️",
-    51: "Light drizzle 🌦️",
-    53: "Drizzle 🌦️",
-    55: "Heavy drizzle 🌧️",
-    61: "Light rain 🌧️",
-    63: "Moderate rain 🌧️",
-    65: "Heavy rain 🌧️",
-    71: "Light snow 🌨️",
-    73: "Snow 🌨️",
-    75: "Heavy snow ❄️",
-    80: "Rain showers 🌦️",
-    81: "Rain showers 🌧️",
-    82: "Heavy rain showers 🌧️",
-    95: "Thunderstorm ⛈️",
-    96: "Thunderstorm with hail ⛈️",
-    99: "Severe thunderstorm ⛈️"
+function handleEmoji(num){
+  if (num < 0){
+    return `Freezing `
+  }
+  else if (num < 10){
+    return `Cold`
+  }
+  else if (num < 18){
+    return `Cool`
+  }
+  else if (num < 24){
+    return `Mid/ Comfortable`
+  }
+  else if (num < 30){
+    return `Warm`
+  }
+  else if(num < 38){
+    return `Hot`
+  }
+  else{
+    return `Extreme hot`
+  }
 }
+
 function handleWeatherClick(elem,val){
   
   elem.addEventListener("click", async () => {
@@ -216,17 +204,13 @@ function handleWeatherClick(elem,val){
         const data = await response.json();
         const weather = data.current
         result.innerHTML = `
-            <h2>${location.name}</h2>
-            <h1>${Math.round(weather.temperature_2m)}°C</h1>
-            <p>${conditions[weather.weather_code] ?? "Unknown conditions"}</p>
-            <p>Feels like: ${weather.apparent_temperature}°C</p>
-            <p>Humidity: ${weather.relative_humidity_2m}%</p>
-            <p>Wind: ${weather.wind_speed_10m} km/h</p>
-            <p>Precipitation: ${weather.precipitation} mm</p>
-            <small>Updated: ${weather.time.replace("T", " ")}</small>
+            <h1>${location.name}</h1>
+            <h2>${Math.round(weather.temperature_2m)}°C</h2>
+            <h3>${handleEmoji(Math.round(weather.temperature_2m))}</h3>
         `;
     } catch (error) {
-        result.innerHTML = `<img style="height: 250px; width: 350px;" src="images/weatherwelcome.gif" alt="welcome">
+        result.innerHTML = `<img style="height: 150px; width: 40%;" src="images/no-result.gif" alt="welcome">
+                            <p style="font-size: 20px;">Try searching for other cities</p>
                             `;
     } finally {
         elem.disabled = false;

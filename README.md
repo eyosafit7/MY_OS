@@ -1,53 +1,38 @@
-# Liqlaqo OS 🖥️
+## Hi, I'm Eyosafit Samuel
 
-Liqlaqo OS is a web based operating system built with html, css, and vanilla javascript. 
+My name is Eyosafit Samuel. I am a student from Ethiopia. I created the Liqlaqo OS web app.
 
+# Liqlaqo OS
 
-## 📖 About
+Liqlaqo OS is a web-based operating system built with HTML, CSS, and vanilla JavaScript. It can run in the browser and has so many cool features. I built it for fun, but I gained a lot of experience along the way.
 
-Liqlaqo OS is my first project in hackclub stardance. It was my dream to create something and deploy it on the internet. In this project I learned Git and Github for first time and used them to deploy my work.I don't know what liqlaqo means but I used it when I created my pubg account and I thought it's cool!
+## Let me tell you about Liqlaqo OS
 
-## ✨ Features
+Liqlaqo OS is my first project in Hack Club Stardance. It was my dream to create something and deploy it on the internet. I tried many times to finish projects before, but I couldn't. I think I used to worry too much about tiny details, but in this project, I focused more on the basic essentials. When I started, I only knew how to code using HTML, CSS, and JavaScript, and I had no idea about version control. But now, I learned Git and GitHub for the first time and used them to deploy my work.
 
-* 🖥️ desktop user interface - close tab, welcome screen, search-bar, cool background and etc
+I don't know what "Liqlaqo" means, but I used it when I created my PUBG account and thought it was cool! When I was creating my project, "Liqlaqo" came to my mind and I used it. Even if it doesn't have a specific meaning, it has developed a connection with me. Finally, I used it to represent my masterpiece :)
 
-* 🪟 draggable applications - It works for all applications. 
+## Some cool features
 
-* 🧮 Functional calculator - I just used built-in eval() function to evaluate what user inserted
+* **Liqlaqo interface:** I tried to think outside the box. I used the macOS and Windows interfaces as models and worked on my own interface. I made all the app windows have a blur effect and added a wallpaper (it's not professional, but it's cool!).
+* **Making apps draggable:** I looked at the guidance and it was hard for me, so I just copied the draggable code from the guidance, but it didn't work. Finally, I understood the bug and adapted it specifically to my HTML components (classes and IDs).
+* **Liqlaqo calculator:** This is the app that I built without any help. I simply built it myself from scratch (brick by brick). I did both the functionality and the styling without guidance (as none was available).
+* **Weather application:** First, I created the app in HTML and styled it, but the functionality was tough. However, I learned a lot from it.
+* **📝 Notebook application:** You can type anything on it, but I haven't included saving functionality yet. Next time, I will use the Next.js framework for this project (for easier backend connection), but in vanilla JavaScript, it is difficult.
+* **Date and time:** I built this myself without guidance using JavaScript's built-in `new Date()` function.
 
-* 🌤️ Weather application - It is the hardest one. It first search what you inserted and fetches the coordinate of that area and again uses that location and fetch the weather using open metro. that's it
+## Built With
 
-* 📝 Notebook application - this one doesn't do anything. If you want cool writing, you can enjoy it
-
-* ⚡ vanilla javascript code interaction - I worked all functionality using javascript as programming language
-
-* 🌐 finally deployed - I finally deployed it live using Github
-
-## 🛠️ Built With
-
-* HTML5
-* CSS3
-* JavaScript
+* HTML5 for content
+* CSS3 for styling
+* JavaScript for logic and functionality
 
 ## 🚀 Live Demo
 
-[Open Liqlaqo OS](https://eyosafit7.github.io/MY_OS/)
+It is available on the web! You can click the link here ==> [Open Liqlaqo OS](https://eyosafit7.github.io/MY_OS/)
 
 ## Credits
 
-I used stardance guidance and looked through every possible link they gave me to 
-undestand the concept more deeply, and thanks for the guidance I finally finished 
-my own project and deployed so that everbody can access it online. 
+I used the Stardance guidance and looked through every possible link they provided to understand the concepts more deeply. Thanks to their guidance, I finally finished my own project and deployed it so everybody can access it online.
 
-### AI Credit
-
-**ChatGPT — OpenAI**
-
-## 👨‍💻 Author
-
-**Eyosafit Samuel**
-
-A student from ethiopia. I have been teaching my self basic programming for the last two years,
-but I didn't deploy anything till now. It's because I didn't have any guidance. I tried so many 
-times to finish a project but know even if I don't feel I finished the project I decided to deploy 
-it anyways, because I changed so much in this project and gave everything I have to complete it. 
+I also used Google to search for free images and icons because I couldn't create them myself and couldn't generate them using AI (it was restricted).
